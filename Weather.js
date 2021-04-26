@@ -65,7 +65,12 @@ export default function Weather({ temp, condition }) {
         />
         <Text style={styles.temp}>{temp}</Text>
       </View>
-      <View style={styles.halfContainer}></View>
+      <View style={{ ...styles.halfContainer, ...styles.textContainer }}>
+        <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+        <Text style={styles.subtitle}>
+          {weatherOptions[condition].subtitle}
+        </Text>
+      </View>
     </LinearGradient>
   );
 }
@@ -100,5 +105,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    color: "white",
+    fontSize: 44,
+    fontWeight: "300",
+    marginBottom: 10,
+  },
+  subtitle: {
+    color: "white",
+    fontWeight: "600",
+    fontSize: 24,
+  },
+  textContainer: {
+    paddingHorizontal: 20,
+    alignItems: "flex-start",
   },
 });
